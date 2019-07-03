@@ -5,19 +5,16 @@ import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import GlobalStyle from '../styles/global';
-import Section from '../components/Section';
 
-import Header from '../components/Header';
-import About from '../components/About';
-import Portfolio from '../components/Portfolio';
-import Resume from '../components/Resume';
-import Contacts from '../components/Contacts';
+// import Header from '../components/Header';
+
 import Footer from '../components/Footer';
 
 class IndexPage extends React.Component {
   render() {
-    const sections = this.props.data.sectionsData.edges[0].node;
     const intro = this.props.data.headerData;
+    console.log(intro);
+    
     //sections.modules.forEach( i => console.log(i));
     return (
       <Layout>
@@ -33,27 +30,7 @@ class IndexPage extends React.Component {
           ]}
         />
         <GlobalStyle />
-        <Header header={intro} />
-        {sections.modules.map((section, index) => (
-          <Section
-            key={index}
-            type={section.__typename}
-            className={section.slug}
-            title={section.title}
-            description={section.description}
-          >
-            {section.__typename === 'ContentfulAbout' && (
-              <About key={section.id} about={section} />
-            )}
-            {section.__typename === 'ContentfulPortfolioList' && (
-              <Portfolio key={section.id} folio={section} />
-            )}
-            {section.__typename === 'ContentfulExperienceList' && (
-              <Resume key={section.id} jobs={section.modules} />
-            )}
-            {section.__typename === 'ContentfulContacts' && <Contacts />}
-          </Section>
-        ))}
+        {/* <Header header={intro} /> */}
         <Footer />
       </Layout>
     );
@@ -64,93 +41,12 @@ export default IndexPage;
 
 IndexPage.propTypes = {
   data: PropTypes.object,
-  about: PropTypes.object,
-  folio: PropTypes.object,
-  jobs: PropTypes.object
 };
 
 export const query = graphql`
   query Index {
-    headerData: contentfulIntro {
+    headerData: contentfulHome {
       title
-      description
-      slug
-      sectionTitle
-      modules {
-        ... on ContentfulHero {
-          title
-          image {
-            fluid(maxWidth: 1400, quality: 90) {
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
-          }
-        }
-      }
-    }
-    sectionsData: allContentfulModules {
-      edges {
-        node {
-          id
-          modules {
-            __typename
-            ... on ContentfulAbout {
-              title
-              description
-              slug
-              content {
-                childContentfulRichText {
-                  html
-                }
-              }
-              modules {
-                ... on ContentfulProfile {
-                  name
-                  jobPosition
-                  website
-                }
-              }
-            }
-            ... on ContentfulPortfolioList {
-              title
-              description
-              slug
-              projects {
-                ... on ContentfulPortfolio {
-                  name
-                  url
-                  types
-                  description
-                  image {
-                    fluid(maxWidth: 500, quality: 80) {
-                      ...GatsbyContentfulFluid_withWebp_noBase64
-                    }
-                  }
-                }
-              }
-            }
-            ... on ContentfulExperienceList {
-              title
-              description
-              slug
-              modules {
-                ... on ContentfulExperience {
-                  id
-                  position
-                  description
-                  company
-                  start(formatString: "MMM YYYY")
-                  end(formatString: "MMM YYYY")
-                }
-              }
-            }
-            ... on ContentfulContacts {
-              title
-              description
-              slug
-            }
-          }
-        }
-      }
     }
   }
 `;
