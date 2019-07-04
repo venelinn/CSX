@@ -44,8 +44,12 @@ h2, h3, h4, h5, h6{
 	margin-bottom: 1.5rem;
 }
 
+h1 {
+	color: var(--base-color);
+	@include font-size(90px);
+}
+
 h2 {
-	white-space: nowrap;
 	font-size: inherit;
 }
 
@@ -64,9 +68,8 @@ h3 {
   white-space: nowrap;
   display: inline-block;
   font-weight: bold;
-	font-size: .85rem;
 	border: 1px solid currentColor;
-	padding: 1rem 2rem;
+	padding: .7rem 2rem;
 	&:hover,
 	&:focus {
 		border-color: var(--base-color);
@@ -103,24 +106,6 @@ h3 {
 
 /// HERO
 
-.hero {
-  position: fixed;
-  overflow: hidden;
-  width: 100%;
-  z-index: -1;
-	height: 100vh;
-}
-
-.hero__image {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-
-  img {
-    object-fit: cover;
-  }
-}
 
 /**
  * ===================================================================

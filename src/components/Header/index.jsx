@@ -1,34 +1,42 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
-import mainLogo from'../../images/logo.svg';
+import TopBar from './Topbar';
+import Plx from 'react-plx';
+import bigx from'../../images/x.svg';
 
 import './header.scss';
+const parallaxData = [
+  {
+    start: '0',
+    end: '200vh',
+    easing: "easeInOut",
+    properties: [
+      {
+        startValue: 0,
+        endValue: -200,
+        unit: '%',
+        property: 'translateY',
+      },
+    ],
+  },
+];
 
 const Header = props => {
   return (
-    <section>
-      <header className="header">
-        <div className="header__logo">
-          <img src={mainLogo} alt="CSX"/>
-        </div>
-        <div className="header__cta">
-        <a
-            className='button jsSmoothScroll'
-            href='#contacts'
-            title='Get Quote'
-          >
-          Get Quote
-        </a>
-        </div>
-      </header>
-      <div>
+    <section className="hero">
+      <TopBar />
+      <div className="intro">
         <Fade>
           <h1>{props.data.title}</h1>
         </Fade>
         <Fade delay={500}>
-          <p>{props.data.description}</p>
+          <div className="intro__desc">{props.data.description}</div>
         </Fade>
       </div>
+      <Plx
+        className="bigx"
+        parallaxData={parallaxData}
+      ><img src={bigx} alt="CSX"/></Plx>
     </section>
   )
 };

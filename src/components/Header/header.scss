@@ -1,16 +1,39 @@
 .header {
 	display: flex;
 	justify-content: space-between;
+	padding: 3rem;
+	flex: 0;
 }
 
-.opening {
-	&-appear {
-		opacity: 0.01;
-		transition: opacity 500ms ease-in;
-	}
-	&-enter-done {
-		opacity: 1;
-		transition: opacity 500ms ease-in;
-	}
+.hero {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
 
+.intro {
+	flex: 1;
+	text-align: center;
+	padding-top: 15vh;
+}
+
+.header__cta {
+	text-transform: lowercase
+}
+
+.intro__desc {
+	@include font-size(32px);
+	max-width: 400px;
+	margin: 2rem auto;
+}
+
+.bigx {
+	position: absolute;
+	width:100vw;
+	height: 150vh;
+	top: 0rem;
+	left: 0;
+	color: var(--color-dark);
+	z-index: -1;
+}

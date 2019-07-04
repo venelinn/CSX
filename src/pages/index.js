@@ -17,7 +17,6 @@ class IndexPage extends React.Component {
   render() {
     const intro = this.props.data.headerData;
     const sections = this.props.data.sectionsData.edges[0].node;
-    console.log(this.props.data);
 
     //sections.modules.forEach( i => console.log(i));
     return (
@@ -75,7 +74,9 @@ export const query = graphql`
             ... on ContentfulAbout {
               title
               description {
-                description
+                childMarkdownRemark {
+                  html
+                }
               }
               slug
             }
@@ -92,7 +93,9 @@ export const query = graphql`
             ... on ContentfulContacts {
               title
               description {
-                description
+                childMarkdownRemark {
+                  html
+                }
               }
               slug
             }
