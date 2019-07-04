@@ -7,12 +7,12 @@ import './About.scss';
 const About = props => {
   return (
     <div>
-      <Fade bottom delay={1500}>
-      <div
-        className="about__content"
-        dangerouslySetInnerHTML={{
-          __html: props.data.description.childMarkdownRemark.html
-        }}
+      <Fade bottom>
+        <div
+          className="about__content"
+          dangerouslySetInnerHTML={{
+            __html: props.data.description.childMarkdownRemark.html
+          }}
         />
       </Fade>
     </div>

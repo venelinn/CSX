@@ -8,7 +8,7 @@ import './header.scss';
 const parallaxData = [
   {
     start: '0',
-    end: '150vh',
+    end: '170vh', // should be dynamic and the same as the css
     easing: "easeInOut",
     animateWhenNotInViewport: true,
     properties: [
