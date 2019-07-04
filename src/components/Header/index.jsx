@@ -1,20 +1,32 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
-//import { CSSTransition } from 'react-transition-group';
-
-import styles from './index.module.scss';
+import mainLogo from'../../images/logo.svg';
 
 import './header.scss';
 
 const Header = props => {
   return (
-    <section className={styles.intro}>
-      <div className={styles.intro__content}>
-        <Fade duration={2000} delay={400}>
+    <section>
+      <header className="header">
+        <div className="header__logo">
+          <img src={mainLogo} alt="CSX"/>
+        </div>
+        <div className="header__cta">
+        <a
+            className='button jsSmoothScroll'
+            href='#contacts'
+            title='Get Quote'
+          >
+          Get Quote
+        </a>
+        </div>
+      </header>
+      <div>
+        <Fade>
           <h1>{props.data.title}</h1>
         </Fade>
-        <Fade duration={1000} delay={500}>
-          <p className={styles.intro__position}>{props.data.description}</p>
+        <Fade delay={500}>
+          <p>{props.data.description}</p>
         </Fade>
       </div>
     </section>

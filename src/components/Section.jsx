@@ -8,8 +8,6 @@ const Section = ({ children, className, ...props }) => (
     className={`${styles.section} ${styles.section}--${className}`}
     {...props}
   >
-    <div className={`${styles.inner}`}>
-    </div>
     {children}
   </section>
 );
@@ -17,8 +15,6 @@ const Section = ({ children, className, ...props }) => (
 Section.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string
 };
 
 Section.defaultProps = {
