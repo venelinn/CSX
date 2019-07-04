@@ -77,6 +77,15 @@ class Contacts extends React.Component {
 
   render() {
     return (
+      <>
+      <div>
+        <Fade duration={2000} delay={400}>
+          <h2>{this.props.data.title}</h2>
+        </Fade>
+        <Fade duration={1000} delay={500}>
+          <p>{this.props.data.description.description}</p>
+        </Fade>
+      </div>
       <div className="contact-form">
         <Form
           name="contact"
@@ -143,6 +152,7 @@ class Contacts extends React.Component {
           </Modal>
         </Form>
       </div>
+      </>
     )
   }
 }

@@ -21,13 +21,13 @@ body {
  */
 
 a {
-	color: #000;
+	color: currentColor;
 	transition: all 0.3s ease-in-out;
 }
 a:hover,
 a:focus,
 a:active {
-	color: var(--base-color);
+	color: inherit;
 	outline: 0;
 }
 
@@ -45,9 +45,6 @@ h2, h3, h4, h5, h6{
 }
 
 h2 {
-	text-transform: uppercase;
-	color: var(--base-color);
-	letter-spacing: .2rem;
 	white-space: nowrap;
 	font-size: inherit;
 }

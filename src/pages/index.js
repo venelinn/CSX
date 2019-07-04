@@ -5,13 +5,18 @@ import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import GlobalStyle from '../styles/global';
+import Section from '../components/Section';
 
 import Header from '../components/Header';
+import About from '../components/About';
+import Slider from '../components/Slider';
+import Contacts from '../components/Contacts';
 import Footer from '../components/Footer';
 
 class IndexPage extends React.Component {
   render() {
     const intro = this.props.data.headerData;
+    const sections = this.props.data.sectionsData.edges[0].node;
     console.log(this.props.data);
 
     //sections.modules.forEach( i => console.log(i));
@@ -24,7 +29,24 @@ class IndexPage extends React.Component {
           ]}
         />
         <GlobalStyle />
-        <Header header={intro} />
+        <Header data={intro} />
+        {sections.modules.map((section, index) => (
+          <Section
+            key={index}
+            type={section.__typename}
+            className={section.slug}
+          >
+            {section.__typename === 'ContentfulAbout' && (
+              <About key={section.id} data={section} />
+            )}
+             {section.__typename === 'ContentfulSlider' && (
+              <Slider key={section.id} data={section} />
+            )}
+            {section.__typename === 'ContentfulContacts' && (
+              <Contacts key={section.id} data={section} />
+            )}
+          </Section>
+        ))}
         <Footer />
       </Layout>
     );
@@ -43,6 +65,40 @@ export const query = graphql`
       title
       description
       slug
+    }
+    sectionsData: allContentfulSections {
+      edges {
+        node {
+          id
+          modules {
+            __typename
+            ... on ContentfulAbout {
+              title
+              description {
+                description
+              }
+              slug
+            }
+            ... on ContentfulSlider {
+              title
+              slug
+              images {
+                title
+                fluid(maxWidth: 1500, quality: 80) {
+                  ...GatsbyContentfulFluid_withWebp
+                }
+              }
+            }
+            ... on ContentfulContacts {
+              title
+              description {
+                description
+              }
+              slug
+            }
+          }
+        }
+      }
     }
   }
 `;

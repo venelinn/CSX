@@ -11,10 +11,10 @@ const Header = props => {
     <section className={styles.intro}>
       <div className={styles.intro__content}>
         <Fade duration={2000} delay={400}>
-          <h1>{props.header.title}</h1>
+          <h1>{props.data.title}</h1>
         </Fade>
         <Fade duration={1000} delay={500}>
-          <p className={styles.intro__position}>{props.header.description}</p>
+          <p className={styles.intro__position}>{props.data.description}</p>
         </Fade>
       </div>
     </section>
