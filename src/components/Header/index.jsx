@@ -8,14 +8,20 @@ import './header.scss';
 const parallaxData = [
   {
     start: '0',
-    end: '200vh',
+    end: '150vh',
     easing: "easeInOut",
+    animateWhenNotInViewport: true,
     properties: [
       {
         startValue: 0,
         endValue: -200,
         unit: '%',
         property: 'translateY',
+      },
+      {
+        startValue: 1,
+        endValue: 0,
+        property: 'opacity',
       },
     ],
   },

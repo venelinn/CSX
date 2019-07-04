@@ -7,7 +7,7 @@ import './About.scss';
 const About = props => {
   return (
     <div>
-      <Fade duration={1000} delay={500}>
+      <Fade bottom delay={1500}>
       <div
         className="about__content"
         dangerouslySetInnerHTML={{
