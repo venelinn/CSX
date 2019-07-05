@@ -32,17 +32,19 @@ const Header = props => {
     <section className="hero">
       <TopBar />
       <div className="intro">
-        <Fade>
+        <Fade delay={500}>
           <h1>{props.data.title}</h1>
         </Fade>
-        <Fade delay={500}>
+        <Fade delay={1000}>
           <div className="intro__desc">{props.data.description}</div>
         </Fade>
       </div>
       <Plx
         className="bigx"
         parallaxData={parallaxData}
-      ><img src={bigx} alt="CSX"/></Plx>
+      >
+      	<img src={bigx} alt="CSX"/>
+      </Plx>
     </section>
   )
 };

@@ -1,3 +1,20 @@
-@include font-face('League Spartan', 'fonts/LeagueSpartan/LeagueSpartan-Bold', null, null, otf woff2 );
-@include font-face('Jost', 'fonts/jost/Jost-400-Book', null, null, ttf woff2 );
+@include font-face('Stolzl', '../fonts/Stolzl/StolzlRegular', null, null, ttf woff2 woff );
+// @include font-face('HaasGroteskDS35', '../fonts/HaasGrotesk/NHaasGroteskDSPro-35XLt', null, null, otf );
+// @include font-face('HaasGroteskDS45', '../fonts/HaasGrotesk/NHaasGroteskDSPro-45Lt', null, null, otf );
+// @include font-face('HaasGroteskDS55', '../fonts/HaasGrotesk/NHaasGroteskDSPro-55Rg', null, null, otf );
 
+
+@font-face {
+  font-family: "HaasGroteskDS35";
+  src: url(../fonts/HaasGrotesk/NHaasGroteskDSPro-35XLt.otf) format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "HaasGroteskDS45";
+  src: url(../fonts/HaasGrotesk/NHaasGroteskDSPro-45Lt.otf) format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

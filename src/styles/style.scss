@@ -7,10 +7,12 @@
 body {
 	background-color: #2e49ce;
 	font-family: var(--body-font);
-	font-size: 1.2rem;
+	font-size: 1rem;
 	font-weight: normal;
-	line-height: 1.4;
+	line-height: 1.2;
 	color: var(--color-light);
+	@include font-smoothing;
+
 }
 
 /**
@@ -37,16 +39,23 @@ a:active {
  *
  * -------------------------------------------------------------------
  */
-h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6{
 	font-family: var(--header-font);
 	color: inherit;
 	font-style: normal;
 	margin-bottom: 1.5rem;
+	font-weight: 100;
+	letter-spacing: 2px;
 }
 
 h1 {
 	color: var(--base-color);
-	@include font-size(90px);
+	@include breakpoint($medium + 1) {
+		@include font-size(90px);
+	}
+	@include breakpoint(0 $medium) {
+		@include font-size(50px);	
+	}
 }
 
 h2 {

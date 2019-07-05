@@ -19,7 +19,8 @@
 }
 
 .header__cta {
-	text-transform: lowercase
+	text-transform: lowercase;
+	font-size: 1.1rem;
 }
 
 .intro__desc {
@@ -39,5 +40,18 @@
 	z-index: -1;
 	img {
 		width: 100%;
+		transform-origin: top;
+		transition: transform .9s ease-in, opacity .3s ease-in;
+		animation: bigx 1s 1;
 	}
+}
+
+@keyframes bigx {
+  from {
+  	transform: scale(5); 
+  	opacity: 0 }
+  to {
+  	transform: scale(1);
+  	opacity: 1;
+  }
 }

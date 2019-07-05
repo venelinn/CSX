@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade';
-//import 'whatwg-fetch'
 
 import "./Contacts.scss"
 
@@ -78,7 +77,7 @@ class Contacts extends React.Component {
   render() {
     return (
       <>
-      <div class="contact">
+      <div className="contact">
         <Fade duration={1000} delay={400}>
           <h2 className="contact__title">{this.props.data.title}</h2>
         </Fade>

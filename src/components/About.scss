@@ -7,7 +7,58 @@
 
 .about__content {
 	@include font-size(50px);
-	width: 30%;
 	margin: 0 auto;
-	line-height: 110%;
+	line-height: 120%;
+	letter-spacing: 2px;
+	@include breakpoint($medium) {
+		max-width: 435px;
+	}
+	strong {
+		--space: 30px;
+		--padding: 5px;
+		//--anim: cubic-bezier(.77,0,.175,1);
+		--anim: easeIn;
+		--speed-anim: .3s;
+		position: relative;
+		display: inline-block;
+		padding-right: 5px;
+		margin-right: calc(var(--space) + .5rem);
+		&:before {
+			content: '';
+			background-color: var(--base-color);
+			width: 0;
+			height: 100%;
+			display: block;
+			position: absolute;
+			z-index: -1;
+			transition: width var(--speed-anim) var(--anim);
+			left: calc(-1 * var(--padding));
+			right: calc(-1 * var(--padding));
+		}
+		&:after,
+		&:before {
+			content: '';
+			position: absolute;
+		}
+		&:before {
+			transition: width .3s ease;
+		}
+		&:after {
+			left: 0;
+			transition: left .3s ease;
+		}
+		&.active {
+			&:before,
+			&:after {
+				//transition-delay: 1s;
+			}
+			&:before {
+				width: calc(100% + var(--padding));
+			}
+			&:after {
+				@include arrow(var(--space), var(--base-color), right);
+				left: 100%;
+			}
+		}
+	}
 }
