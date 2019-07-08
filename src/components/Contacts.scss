@@ -1,15 +1,27 @@
 #contacts {
-	padding: 3rem;
+	@include breakpoint($medium + 1) {
+		padding: 3rem;
+	}
+	@include breakpoint(0 $medium) {
+		padding: 2rem 1rem 1rem;	
+	}
 }
 
 .contact {
-	width: 50%;
 	margin: 0 auto 2rem;
-	text-align: center
+	text-align: center;
+	@include breakpoint($medium + 1) {
+		width: 50%;
+	}
 }
 
 .contact__title {
-	@include font-size(74px);
+	@include breakpoint($medium + 1) {
+		@include font-size(74px);
+	}
+	@include breakpoint(0 $medium) {
+		@include font-size(40px);	
+	}
 }
 .contact__desc {
 	line-height: 1.4;

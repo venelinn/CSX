@@ -33,7 +33,29 @@
 }
 
 .slide__content__title {
-	max-width: 50%;
 	margin: 0 auto;
-	@include font-size(58px);
+  @include breakpoint($medium + 1) {
+	 max-width: 50%;
+	  @include font-size(58px);
+  }
+  @include breakpoint(0 $medium) {
+    @include font-size(40px); 
+  }
+}
+
+.slide__arrow {
+  position: absolute;
+  left: 45%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  &--top {
+    top: -2rem;
+  }
+  &--bottom {
+    bottom: -2rem;
+    img {
+      transform: rotate(180deg);
+      transform-origin: 50%;
+    }
+  }
 }

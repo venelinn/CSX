@@ -4,13 +4,16 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
+import Slide from 'react-reveal/Slide';
 import Fade from 'react-reveal/Fade';
+import Arrow from'../../images/arrow.svg';
 
 import './gslider.scss';
 
-const SectionWipes2Styled = styled.div`
+const SectionWipes = styled.div`
   overflow: hidden;
-
+  position: relative;
+  
   #pinContainer {
     height: 100vh;
     width: 100vw;
@@ -22,10 +25,9 @@ const SectionWipes2Styled = styled.div`
 const GSlider = (props) => {
   const items = props.data;
   const firstItem = items.images.splice(0, 1);
-  console.log(items);
      
 return (
-  <SectionWipes2Styled>
+  <SectionWipes>
     <Controller>
       <Scene
         triggerHook="onLeave"
@@ -64,7 +66,17 @@ return (
         </Timeline>
       </Scene>
     </Controller>
-  </SectionWipes2Styled>
+    <Slide delay={500} top>
+      <div className="slide__arrow slide__arrow--top">
+        <img src={Arrow} alt="CSX"/>
+      </div>
+    </Slide>
+    <Slide delay={700} bottom>
+      <div className="slide__arrow slide__arrow--bottom">
+        <img src={Arrow} alt="CSX"/>
+      </div>
+    </Slide>
+  </SectionWipes>
 )};
 
 export default GSlider;

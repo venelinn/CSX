@@ -5,19 +5,29 @@
 }
 
 .about__content {
-	@include font-size(50px);
 	margin: 0 auto;
 	line-height: 120%;
 	letter-spacing: 2px;
-	@include breakpoint($medium) {
+	@include breakpoint($medium + 1) {
+		@include font-size(50px);
 		max-width: 435px;
 	}
+	@include breakpoint(0 $medium) {
+		@include font-size(40px);
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 	strong {
-		--space: 30px;
 		--padding: 5px;
 		//--anim: cubic-bezier(.77,0,.175,1);
 		--anim: ease-in;
 		--speed-anim: .5s;
+		@include breakpoint($medium + 1) {
+			--space: 30px;	
+		}
+		@include breakpoint(0 $medium) {
+			--space: 24px;
+		}
 		position: relative;
 		display: inline-block;
 		padding-right: 5px;

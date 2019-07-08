@@ -8,17 +8,31 @@
 .header {
 	display: flex;
 	justify-content: space-between;
-	padding: 3rem;
 	flex: 0;
 	position: sticky;
 	top: 0;
+	@include breakpoint($medium + 1) {
+		padding: 3rem;
+	}
+	@include breakpoint(0 $medium) {
+		padding: 1rem;	
+	}
 }
-
 
 .intro {
 	flex: 1;
 	text-align: center;
 	padding-top: 17vh;
+	@include breakpoint(0 $medium) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+.header__logo {
+	@include breakpoint(0 $medium) {
+		width: 110px;
+	}
 }
 
 .header__cta {
@@ -30,29 +44,4 @@
 	@include font-size(32px);
 	max-width: 400px;
 	margin: 2rem auto;
-}
-
-.bigx {
-	position: absolute;
-	width:100vw;
-	top: 0rem;
-	left: 0;
-	right: 0;
-	color: var(--color-dark);
-	z-index: -1;
-	img {
-		width: 100%;
-		transform-origin: top;
-		transition: transform .9s ease-in, opacity .3s ease-in;
-		animation: bigx 1s;
-	}
-}
-
-@keyframes bigx {
-  from {
-  	transform: scale3d(3, 3, 3);
-	}
-  to {
-  	transform: scale3d(1, 1, 1);
-  }
 }
