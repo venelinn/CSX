@@ -144,8 +144,8 @@ class Contacts extends React.Component {
                 cols="5"></textarea>
             </label>
           </p>
-          <p className="form-field">
-            <button className="submitform" type="submit">Send</button>
+          <p className="form-field form-field--btn">
+            <button className="button submitform" type="submit">Send</button>
           </p>
           </Fade>
           <Modal visible={this.state.showModal}>

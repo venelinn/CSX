@@ -1,5 +1,6 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 import TopBar from './Topbar';
 import Plx from 'react-plx';
 import bigx from'../../images/x.svg';
@@ -43,7 +44,9 @@ const Header = props => {
         className="bigx"
         parallaxData={parallaxData}
       >
+        <Fade>
       	<img src={bigx} alt="CSX"/>
+        </Fade>
       </Plx>
     </section>
   )

@@ -9,7 +9,8 @@ import Section from '../components/Section';
 
 import Header from '../components/Header';
 import About from '../components/About';
-import Slider from '../components/Slider';
+//import Slider from '../components/Slider';
+import GSlider from '../components/GSlider';
 import Contacts from '../components/Contacts';
 import Footer from '../components/Footer';
 
@@ -39,7 +40,7 @@ class IndexPage extends React.Component {
               <About key={section.id} data={section} />
             )}
              {section.__typename === 'ContentfulSlider' && (
-              <Slider key={section.id} data={section} />
+              <GSlider key={section.id} data={section} />
             )}
             {section.__typename === 'ContentfulContacts' && (
               <Contacts key={section.id} data={section} />

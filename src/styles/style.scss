@@ -1,13 +1,13 @@
 
 //@import 'fonts';
-@import 'animation';
+//@import 'animation';
 
 @import 'reset';
 
 body {
 	background-color: #2e49ce;
 	font-family: var(--body-font);
-	font-size: 1rem;
+	font-size: 1.4rem;
 	font-weight: normal;
 	line-height: 1.2;
 	color: var(--color-light);
@@ -54,7 +54,7 @@ h1 {
 		@include font-size(90px);
 	}
 	@include breakpoint(0 $medium) {
-		@include font-size(50px);	
+		@include font-size(50px);
 	}
 }
 
@@ -76,7 +76,8 @@ h3 {
   text-align: center;
   white-space: nowrap;
   display: inline-block;
-  font-weight: bold;
+	font-weight: bold;
+	text-transform: lowercase;
 	border: 1px solid currentColor;
 	padding: .7rem 2rem;
 	&:hover,

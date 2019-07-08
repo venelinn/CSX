@@ -1,9 +1,18 @@
 .footer {
-	text-align: center;
+	font-size: 70%;
+	display: flex;
+	justify-content: space-between;
+	max-width: var(--page-max-width);
+	margin: 0 auto;
+	a {
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 .copyright {
 	padding: 10px;
 	text-align: center;
-	font-size: 70%;
 }

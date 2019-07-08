@@ -2,7 +2,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	// /background-color:rgba(0,0,0,.5);
 }
 
 .about__content {
@@ -17,8 +16,8 @@
 		--space: 30px;
 		--padding: 5px;
 		//--anim: cubic-bezier(.77,0,.175,1);
-		--anim: easeIn;
-		--speed-anim: .3s;
+		--anim: ease-in;
+		--speed-anim: .5s;
 		position: relative;
 		display: inline-block;
 		padding-right: 5px;
