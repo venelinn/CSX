@@ -20,47 +20,47 @@ const SectionWipes2Styled = styled.div`
 `;
 
 const GSlider = (props) => {
-  const items = props.data;
-  const firstItem = items.images.splice(0, 1);
-  console.log(items);
-     
+	const items = props.data;
+	const firstItem = items.images.splice(0, 1);
+	//console.log(firstItem[0].title)
+	   
 return (
   <SectionWipes2Styled>
     <Controller>
       <Scene
         triggerHook="onLeave"
-        duration="500%"
+        duration="300%"
         pin
       >
         <Timeline
           wrapper={<div id="pinContainer" />}
         >
-          <div className="gpanel" id="first">
-            <Img fluid={firstItem[0].fluid} />
-            <Fade bottom duration={2000} delay={500}>
-              <div className="slide__content">
-                <h2 className="slide__content__title">{firstItem[0].title}</h2>
-              </div>
-            </Fade>
-          </div>
+	        <div className="gpanel">
+	          <Img fluid={firstItem[0].fluid} />
+	          <Fade bottom delay={500}>
+	          <div className="slide__content">
+	            <h2 className="slide__content__title">{firstItem[0].title}</h2>
+	          </div>
+	          </Fade>
+	        </div>
 
-          {items.images.map((item, index) => (
-            <Tween
-              from={{ y: '100%' }}
-              to={{ y: '0%' }}
-              key={index}
-            >
-             <div className="gpanel">
+	        {items.images.map((item, index) => (
+	      		<Tween
+		          from={{ opacity: 0 }}
+		          to={{ opacity: 1 }}
+		          key={index}
+			      >
+			       <div className="gpanel">
                 <Img fluid={item.fluid} />
-                <Fade bottom duration={2000} delay={500}>
+                <Fade bottom delay={500}>
                 <div className="slide__content">
                   <h2 className="slide__content__title">{item.title}</h2>
                 </div>
                 </Fade>
               </div>
-            </Tween>
-            )
-          )}
+	      		</Tween>
+	        	)
+	        )}
         </Timeline>
       </Scene>
     </Controller>

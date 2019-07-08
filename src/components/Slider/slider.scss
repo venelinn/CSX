@@ -31,8 +31,8 @@
 	@include font-size(58px);
 }
 .slider__root {
-	height: 100%;
-	overflow-y: hidden;
+	// height: 100%;
+	// overflow-y: hidden;
 	position: relative;
 	.slider__on & {
 		position: fixed;

@@ -1,15 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
 import TopBar from './Topbar';
 import Plx from 'react-plx';
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 import bigx from'../../images/x.svg';
 
 import './header.scss';
 const parallaxData = [
   {
     start: '0',
-    end: '170vh', // should be dynamic and the same as the css
+    end: '220vh', // should be dynamic and the same as the css
     easing: "easeInOut",
     animateWhenNotInViewport: true,
     properties: [
@@ -28,6 +30,10 @@ const parallaxData = [
   },
 ];
 
+const BigX = styled.div`
+	height: 220vh;
+`
+
 const Header = props => {
   return (
     <section className="hero">
@@ -40,13 +46,21 @@ const Header = props => {
           <div className="intro__desc">{props.data.description}</div>
         </Fade>
       </div>
+      {/*<ParallaxProvider>
+       <Parallax
+          y={['45%', '-100%']}
+          className='bigx'
+      >
+          <img src={bigx} alt="CSX"/>
+      </Parallax>
+      </ParallaxProvider>*/}
       <Plx
         className="bigx"
         parallaxData={parallaxData}
       >
-        <Fade>
-      	<img src={bigx} alt="CSX"/>
-        </Fade>
+    	<BigX>
+  			<img src={bigx} alt="CSX"/>
+  		</BigX>
       </Plx>
     </section>
   )

@@ -35,7 +35,6 @@
 .bigx {
 	position: absolute;
 	width:100vw;
-	height: 170vh;
 	top: 0rem;
 	left: 0;
 	right: 0;
@@ -51,9 +50,9 @@
 
 @keyframes bigx {
   from {
-  	transform: scale(5);
+  	transform: scale3d(3, 3, 3);
 	}
   to {
-  	transform: scale(1);
+  	transform: scale3d(1, 1, 1);
   }
 }

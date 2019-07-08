@@ -19,7 +19,13 @@ const CSlider = (props) => {
       autoplay: true,
       on: {
       	slideChange: function() {
-      		console.log('slide change')
+      		//console.log('slide change')
+        },
+        reachBeginning: function() {
+        	console.log('FITSTTTT')
+        	   
+        	// this.mousewheel.enable();
+        	// document.body.classList.add('slider__on');
         },
         reachEnd: function() {
           setTimeout(() => {
@@ -30,6 +36,7 @@ const CSlider = (props) => {
       }
     }
     const items = props.data;
+    console.log(props.scroll)
 
     return (
       <ReactIdSwiper {...params}>
