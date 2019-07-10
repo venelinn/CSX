@@ -5,7 +5,7 @@
 @import 'reset';
 
 body {
-	background-color: #2e49ce;
+	background-color: var(--bgr-color);
 	font-family: var(--body-font);
 	font-size: 1.4rem;
 	font-weight: normal;

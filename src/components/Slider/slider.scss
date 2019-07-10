@@ -23,16 +23,22 @@
 	text-align: center;
 	display: flex;
 	align-items: center;
-	
+
 }
 .slide__content__title {
-	max-width: 50%;
 	margin: 0 auto;
-	@include font-size(58px);
+  @include breakpoint($medium + 1) {
+	 max-width: 50%;
+	  @include font-size(58px);
+  }
+  @include breakpoint(0 $medium) {
+    @include font-size(40px);
+  }
 }
+
 .slider__root {
-	// height: 100%;
-	// overflow-y: hidden;
+	height: 100%;
+	overflow-y: hidden;
 	position: relative;
 	.slider__on & {
 		position: fixed;

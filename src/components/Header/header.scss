@@ -15,7 +15,7 @@
 		padding: 3rem;
 	}
 	@include breakpoint(0 $medium) {
-		padding: 1rem;	
+		padding: 1rem;
 	}
 }
 
@@ -44,4 +44,8 @@
 	@include font-size(32px);
 	max-width: 400px;
 	margin: 2rem auto;
+}
+
+.hero--x {
+	background-color: var(--color-dark);
 }

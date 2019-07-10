@@ -1,8 +1,8 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
-import Zoom from 'react-reveal/Zoom';
 import TopBar from './Topbar';
 import Bigx from'./Bigx';
+import XShape from'./XShape';
 
 import './header.scss';
 
@@ -19,8 +19,9 @@ const Header = props => {
           <div className="intro__desc">{props.data.description}</div>
         </Fade>
       </div>
+      {/* <XShape /> */}
       {width > 800 ? (
-    		<Bigx />  		
+    		<Bigx />
       	) : ''
     	}
     </section>

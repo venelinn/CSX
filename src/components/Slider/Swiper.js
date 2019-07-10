@@ -22,8 +22,8 @@ const CSlider = (props) => {
       		//console.log('slide change')
         },
         reachBeginning: function() {
-        	console.log('FITSTTTT')
-        	   
+        	//console.log('FITSTTTT')
+
         	// this.mousewheel.enable();
         	// document.body.classList.add('slider__on');
         },
@@ -36,7 +36,7 @@ const CSlider = (props) => {
       }
     }
     const items = props.data;
-    console.log(props.scroll)
+    //console.log(props.scroll)
 
     return (
       <ReactIdSwiper {...params}>
