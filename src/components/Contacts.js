@@ -5,13 +5,10 @@ import Fade from 'react-reveal/Fade';
 import "./Contacts.scss"
 
 const Form = styled.form`
-  &::before {
-    content: '';
-    transition: 0.2s all;
-    opacity: ${props => (props.overlay ? '.8' : '0')};
-    visibility: ${props => (props.overlay ? 'visible' : 'hidden')};
-  }
+	display: flex;
+	flex-wrap: wrap;
 `
+
 
 const Modal = styled.div`
   background: #f1f1f1;
@@ -51,7 +48,7 @@ class Contacts extends React.Component {
   }
 
   handleSubmit = event => {
-    fetch('/', {
+    fetch('http://www.pages04.net/csxprod/TruckBusterForm/TruckBuster', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state }),
@@ -91,11 +88,51 @@ class Contacts extends React.Component {
         </Fade>
       </div>
       <div className="contact-form">
-        <Form
+      <Form
           name="contact"
           onSubmit={this.handleSubmit}
-          data-netlify="true"
-          data-netlify-honeypot="bot"
+          overlay={this.state.showModal}
+          onClick={this.closeModal}
+          pageId="23288825" 
+          siteId="573838" 
+          parentPageId="23288823"
+        >
+	        <div id="container_COLUMN125">
+	          <div class="fieldLabel">Full Name</div>
+	          <input type="text" name="Full Name" id="control_COLUMN125" label="Full Name" class="textInput defaultText" />
+	        </div>
+         	<div id="container_EMAIL">
+          	<div class="fieldLabel">Email</div>
+            <input type="text" name="Email" id="control_EMAIL" label="Email" class="textInput defaultText" />
+          </div>
+          <div id="container_COLUMN60">
+            <div class="fieldLabel">Phone Number</div>
+            <input type="text" name="Phone Number" id="control_COLUMN60" label="Phone Number" />
+          </div>
+          <div id="container_COLUMN11">
+            <div class="fieldLabel">Company Name</div>
+          	<input type="text" name="Company Name" id="control_COLUMN11" label="Company Name" class="textInput defaultText" />
+          </div>
+          <div id="container_COLUMN124">
+            <div class="fieldLabel">Commodity or STCC</div>
+            <input type="text" name="Commodity or STCC" id="control_COLUMN124" label="Commodity or STCC" class="textInput defaultText" />
+          </div>
+          <div id="container_COLUMN123">
+              <div class="fieldLabel">Lanes to quote</div>
+              <input type="text" name="Lanes to quote" id="control_COLUMN123" label="Lanes to quote" class="textInput defaultText" />
+	        </div>
+          <div id="errorMessageContainerId" class="formErrorMessages" style={{display: `none`}}></div>
+          <div>
+          	<input type="submit" class="defaultText buttonStyle" value="Submit" />
+          </div>
+          <input type="hidden" name="formSourceName" value="StandardForm" />
+          {/*DO NOT REMOVE HIDDEN FIELD sp_exp*/}
+          <input type="hidden" name="sp_exp" value="yes" />
+      	</Form>
+			
+				{/*<Form
+          name="contact"
+          onSubmit={this.handleSubmit}
           overlay={this.state.showModal}
           onClick={this.closeModal}
         >
@@ -148,14 +185,15 @@ class Contacts extends React.Component {
             <button className="button submitform" type="submit">Send</button>
           </p>
           </Fade>
-          <Modal visible={this.state.showModal}>
+        </Form>*/}
+       
+      </div>
+      <Modal visible={this.state.showModal}>
             <p>
               Thank you for reaching out. I will get back to you as soon as
               possible.
             </p>
           </Modal>
-        </Form>
-      </div>
       </>
     )
   }
