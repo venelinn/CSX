@@ -4,6 +4,11 @@
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
+	.section__inner {
+
+		max-width: 700px;
+		width: 100%;
+	}
 	@include breakpoint($medium + 1) {
 		padding: 2rem 0;
 	}
@@ -15,9 +20,6 @@
 .contact {
 	margin: 0 auto 2rem;
 	text-align: center;
-	@include breakpoint($medium + 1) {
-		width: 50%;
-	}
 }
 
 .contact__title {
@@ -30,6 +32,7 @@
 }
 .contact__desc {
 	@include font-size(18px);
+	line-height: 135%;
 }
 
 /* contact form */
@@ -38,7 +41,7 @@ form {
 	display: grid;
 	grid-gap: 3rem 2rem;
 	grid-template-columns: repeat(2, 1fr);
-	
+
 	max-width: 600px;
 	margin: 0 auto;
 }

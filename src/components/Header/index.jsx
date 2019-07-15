@@ -11,7 +11,6 @@ import './header.scss';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.controller5 = new ScrollMagic.Controller();
   }
   componentDidMount() {
     var controller = new ScrollMagic.Controller();
