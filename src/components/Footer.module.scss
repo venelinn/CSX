@@ -1,9 +1,11 @@
 .footer {
+	width: 100%;
+	position: relative;
+	padding: 0 2rem;
 	font-size: 70%;
 	display: flex;
+	top: 3rem;
 	justify-content: space-between;
-	max-width: var(--page-max-width);
-	margin: 0 auto;
 	a {
 		text-decoration: underline;
 		&:hover {

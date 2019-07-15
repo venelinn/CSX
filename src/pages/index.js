@@ -8,18 +8,12 @@ import GlobalStyle from '../styles/global';
 import Section from '../components/Section';
 
 import Header from '../components/Header';
-import About from '../components/About';
-
-import Slider from '../components/Slider';
-//import GSlider from '../components/GSlider/gs';
-
 import Contacts from '../components/Contacts';
-import Footer from '../components/Footer';
 
 class IndexPage extends React.Component {
   render() {
     const intro = this.props.data.headerData;
-    const sections = this.props.data.sectionsData.edges[0].node;
+    const contacts = this.props.data.contactsData;
 
     //sections.modules.forEach( i => console.log(i));
     return (
@@ -32,24 +26,7 @@ class IndexPage extends React.Component {
         />
         <GlobalStyle />
         <Header data={intro} />
-        {sections.modules.map((section, index) => (
-          <Section
-            key={index}
-            type={section.__typename}
-            className={section.slug}
-          >
-            {section.__typename === 'ContentfulAbout' && (
-              <About key={section.id} data={section} />
-            )}
-             {section.__typename === 'ContentfulSlider' && (
-              <Slider key={section.id} data={section} />
-            )}
-            {section.__typename === 'ContentfulContacts' && (
-              <Contacts key={section.id} data={section} />
-            )}
-          </Section>
-        ))}
-        <Footer />
+        <Contacts data={contacts} />
       </Layout>
     );
   }
@@ -68,31 +45,20 @@ export const query = graphql`
       description
       slug
     }
+    contactsData: contentfulContacts {
+      title
+      description {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
     sectionsData: allContentfulSections {
       edges {
         node {
           id
           modules {
             __typename
-            ... on ContentfulAbout {
-              title
-              description {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              slug
-            }
-            ... on ContentfulSlider {
-              title
-              slug
-              images {
-                title
-                fluid(maxWidth: 1500, quality: 80) {
-                  ...GatsbyContentfulFluid_withWebp
-                }
-              }
-            }
             ... on ContentfulContacts {
               title
               description {

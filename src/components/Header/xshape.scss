@@ -1,0 +1,40 @@
+
+.arrow {
+  width: 0;
+  height: 0;
+  position: absolute;
+  transform: translateY(-50%);
+  z-index: 1;
+  top: 50%;
+  border-top: var(--size) solid transparent;
+  border-bottom: var(--size) solid transparent;
+}
+
+.arrow--left {
+  border-left: solid red;
+  left: 0;
+  border-width: 300px 0 300px 250px;
+}
+
+.arrow--right {
+  border-right: solid #2e49ce;
+  right: 0;
+   border-width: 300px 250px 300px 0;
+}
+.arrow__top,
+.arrow__bottom {
+   position: absolute;
+  left: 50%;
+    transform:translateX(-50%)
+}
+
+.arrow__top {
+   top: -50px;
+}
+
+.arrow__bottom {
+  bottom: -50px;
+  svg {
+    transform: rotate(180deg);
+  }
+}

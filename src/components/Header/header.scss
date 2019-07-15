@@ -3,18 +3,22 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	background-color: var(--color-dark);
 }
 
 .header {
 	display: flex;
 	justify-content: space-between;
 	flex: 0;
-	position: sticky;
-	top: 0;
+	z-index: 2;
 	@include breakpoint($medium + 1) {
+		top: 0;
+		position: sticky;
 		padding: 3rem;
 	}
 	@include breakpoint(0 $medium) {
+		position: relative;
+		top: 1rem;
 		padding: 1rem;
 	}
 }
@@ -23,6 +27,7 @@
 	flex: 1;
 	text-align: center;
 	padding-top: 17vh;
+	color: var(--base-color);
 	@include breakpoint(0 $medium) {
 		padding-left: 2rem;
 		padding-right: 2rem;
@@ -40,8 +45,61 @@
 	font-size: 1.1rem;
 }
 
-.intro__desc {
-	@include font-size(32px);
+.page__subtitle {
+	@include font-size(20px);
 	max-width: 400px;
 	margin: 2rem auto;
+	line-height: 140%;
+}
+
+
+.arrow {
+  width: 0;
+  height: 0;
+  position: absolute;
+  transform: translateY(-50%);
+  z-index: 0;
+	top: 50%;
+	@include breakpoint(0 $medium) {
+		--size: 150px;
+		--size-2: 100px;
+	}
+  border-top: var(--size) solid transparent;
+  border-bottom: var(--size) solid transparent;
+	&--left {
+		border-left: solid #2e49ce;
+		left: 0;
+		border-width: var(--size) 0 var(--size) var(--size-2);
+	}
+
+	&--right {
+		border-right: solid #2e49ce;
+		left: auto;
+		right: 0;
+		border-width: var(--size) var(--size-2) var(--size) 0;
+	}
+
+}
+
+.arrow__top,
+.arrow__bottom {
+  position: absolute;
+  left: 50%;
+	transform:translateX(-50%);
+	@include breakpoint(0 $medium) {
+		img {
+			max-width: 100px;
+		}
+	}
+}
+
+.arrow__top {
+   top: -50px;
+}
+
+.arrow__bottom {
+  bottom: -50px;
+  img {
+    transform: rotate(180deg);
+  }
 }

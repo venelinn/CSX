@@ -8,6 +8,8 @@ export default createGlobalStyle`
     --color-light: #fff;
     --bgr-color: #2e49ce;
     --page-max-width: 1200px;
+    --size: 300px;
+    --size-2: 250px;
     --custom-ease-1: cubic-bezier(0.475,0.425,0,0.995);
     --custom-ease-2: cubic-bezier(0.835,-0.005,0.06,1);
     --custom-ease-3: cubic-bezier(0.19,1,0.22,1);
