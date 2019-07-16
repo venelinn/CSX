@@ -1,10 +1,10 @@
 .footer {
 	width: 100%;
+	max-width: var(--page-max-width);
 	position: relative;
 	padding: 0 2rem;
 	font-size: 70%;
 	display: flex;
-	top: 3rem;
 	justify-content: space-between;
 	a {
 		text-decoration: underline;

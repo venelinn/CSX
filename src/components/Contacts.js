@@ -4,6 +4,7 @@ import {Linear, TimelineMax} from 'gsap';
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 
+import { ContactForm } from './Contact';
 import Footer from './Footer';
 
 import "./Contacts.scss"
@@ -12,49 +13,8 @@ import "./Contacts.scss"
 class Contacts extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-			value: '',
-			checked: false,
-			changeClassInput: false,
-			emailErrorMessages: '',
-			changeClass: false,
-			emailSent: false,
-			actives: Array(6).fill(false)
-		};
 	}
 
-	handleChange = () => {
-    this.setState({
-			checked: !this.state.checked,
-			changeClass: false
-		})
-  }
-
-  handleChangeInput = (e) => {
-		this.setState({
-			value: e.target.value,
-			changeClassInput: false
-		});
-  }
-
-  handleFocusInput = (e) => {
-  	console.log(this.state.actives);
-  	   
-  	let index = parseInt(e.target.dataset.index);
-  	this.setState(state => {
-  		return {
-        actives: state.actives[index] = true
-      }
-    });
-  }
-	
-	handleBlurInput = () => {
-		if (this.state.value.trim() === "") {
-			this.setState({
-				active: false
-			});
-		}
-	}
 
   componentDidMount() {
     let second = new TimelineMax();
@@ -93,88 +53,7 @@ class Contacts extends React.Component {
             />
           </div>
           <div className="contact-form">
-          <form
-              name="contact"
-              onSubmit={this.handleSubmit}
-              onClick={this.closeModal}
-              pageid="23288825"
-              siteid="573838"
-              parentpageid="23288823"
-            >
-              <div id="container_COLUMN125" className="input__container">
-                <label className={this.state.active ? 'active' : ''}>
-                  <span className="input__placeholder">Full Name</span>
-                  <input type="text" name="Full Name" data-index="0" id="control_COLUMN125" label="Full Name" className="textInput defaultText"
-                    value={this.state.value}
-                    onChange={this.handleChangeInput}
-                    onFocus={this.handleFocusInput}
-                    onBlur={this.handleBlurInput}
-                  />
-                </label>
-              </div>
-              <div id="container_EMAIL" className="input__container">
-                <label className={this.state.active ? 'active' : ''}>
-                	<span className="input__placeholder">Email</span>
-                	<input type="text" name="Email" data-index="1" id="control_EMAIL" label="Email" className="textInput defaultText" 
-                		value={this.state.value}
-                    onChange={this.handleChangeInput}
-                    onFocus={this.handleFocusInput}
-                    onBlur={this.handleBlurInput}
-                	 />
-                </label>
-              </div>
-              <div id="container_COLUMN60" className="input__container">
-                <label className={this.state.active ? 'active' : ''}>
-                	<span className="input__placeholder">Phone Number</span>
-                	<input type="text" name="Phone Number" id="control_COLUMN60" label="Phone Number" 
-                		 value={this.state.value}
-                    onChange={this.handleChangeInput}
-                    onFocus={this.handleFocusInput}
-                    onBlur={this.handleBlurInput}
-                	 />
-                </label>
-              </div>
-              <div id="container_COLUMN11" className="input__container">
-                <label className={this.state.active ? 'active' : ''}>
-                	<span className="input__placeholder">Company Name</span>
-                	<input type="text" name="Company Name" id="control_COLUMN11" label="Company Name" className="textInput defaultText" 
-                		 value={this.state.value}
-                    onChange={this.handleChangeInput}
-                    onFocus={this.handleFocusInput}
-                    onBlur={this.handleBlurInput}
-                	 />
-                </label>
-              </div>
-              <div id="container_COLUMN124" className="input__container">
-                <label className={this.state.active ? 'active' : ''}>
-	                <span className="input__placeholder">Commodity or STCC</span>
-                	<input type="text" name="Commodity or STCC" id="control_COLUMN124" label="Commodity or STCC" className="textInput defaultText" 
-                		 value={this.state.value}
-                    onChange={this.handleChangeInput}
-                    onFocus={this.handleFocusInput}
-                    onBlur={this.handleBlurInput}
-                	 />
-                </label>
-              </div>
-              <div id="container_COLUMN123" className="input__container">
-                <label className={this.state.active ? 'active' : ''}>
-                	<span className="input__placeholder">Lanes to quote</span>
-                	<input type="text" name="Lanes to quote" id="control_COLUMN123" label="Lanes to quote" className="textInput defaultText" 
-                		 value={this.state.value}
-                    onChange={this.handleChangeInput}
-                    onFocus={this.handleFocusInput}
-                    onBlur={this.handleBlurInput}
-                	 />
-                </label>
-              </div>
-              <div className="form__submit" >
-                <div id="errorMessageContainerId" className="formErrorMessages" style={{display: `none`}}></div>
-                <input type="submit" className="button button--submit defaultText buttonStyle" value="Submit" />
-              </div>
-              <input type="hidden" name="formSourceName" value="StandardForm" />
-              {/*DO NOT REMOVE HIDDEN FIELD sp_exp*/}
-              <input type="hidden" name="sp_exp" value="yes" />
-            </form>
+          <ContactForm />
           </div>
         </div>
         <Footer />
