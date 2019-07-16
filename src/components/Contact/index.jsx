@@ -2,7 +2,7 @@ import React from "react";
 import { useInput } from './input-hook';
 
 export function ContactForm(props) {
-  const { value:fullName, bind:bindFullName, reset:resetFullName } = useInput('');
+  const { value:name, bind:bindName, reset:resetName } = useInput('');
   const { value:email, bind:bindEmail, reset:resetEmail } = useInput('');
   const { value:phone, bind:bindPhone, reset:resetPhone } = useInput('');
   const { value:companyName, bind:bindCompanyName, reset:resetCompanyName } = useInput('');
@@ -11,8 +11,8 @@ export function ContactForm(props) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    alert(`Submitting: ${fullName} ${email}`);
-    resetFullName();
+    console.log(evt);
+    resetName();
     resetEmail();
     resetPhone();
     resetCompanyName();

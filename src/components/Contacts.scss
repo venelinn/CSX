@@ -89,7 +89,8 @@ form {
 	padding: 5px 5px 5px 0;
 }
 
-input[type="submit"] {
+input[type="submit"],
+.button--submit {
 	background-color: var(--color-dark);
 	border: 0;
 	font-size: 80%;

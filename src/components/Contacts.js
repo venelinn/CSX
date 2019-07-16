@@ -5,6 +5,7 @@ import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 
 import { ContactForm } from './Contact';
+import CustomForm from './Contact/CustomForm';
 import Footer from './Footer';
 
 import "./Contacts.scss"
@@ -25,7 +26,7 @@ class Contacts extends React.Component {
 
     let elems = Array.from(document.querySelectorAll('.input__container'));
     elems.forEach(function(slide, index) {
-      second.from(slide, 0.3, { opacity: 0, y: -20, x: -20, ease: Linear.easeNone}, '-=0.01');
+      second.from(slide, 0.3, { opacity: 0, y: 20, ease: Linear.ease}, '-=0.001');
     });
     second.from('.button--submit', 1, { opacity: 0, ease: Linear.easeNone}, '+=0.01');
     second.from('footer', 1, { opacity: 0, ease: Linear.easeNone}, '+=0.05');
@@ -53,7 +54,7 @@ class Contacts extends React.Component {
             />
           </div>
           <div className="contact-form">
-          <ContactForm />
+          <CustomForm />
           </div>
         </div>
         <Footer />
