@@ -87,6 +87,22 @@ form {
 	border-width: 0 0 1px 0;
 	width: 100%;
 	padding: 5px 5px 5px 0;
+	&:valid {
+		background-color: #243FC2;
+		border-color: transparent;
+	}
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  border: 0;
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #243FC2 inset;
+}
+
+input:-internal-autofill-selected {
+  background-color: rgba(0,0,0,.1) !important
 }
 
 input[type="submit"],

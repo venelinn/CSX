@@ -21,6 +21,8 @@ const CustomForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(values)
+    //method="post" 
+    //action="http://www.pages04.net/csxprod/TruckBusterForm/TruckBuster"
   };
 
   return (
@@ -29,6 +31,7 @@ const CustomForm = () => {
       pageid="23288825"
       siteid="573838"
       parentpageid="23288823"
+      
       >
       <div className="input__container" id="container_COLUMN125">
         <input
@@ -54,7 +57,7 @@ const CustomForm = () => {
 
       <div className="input__container" id="container_COLUMN60">
         <input
-          type="text"
+          type="tel"
           id="control_COLUMN60" className="input__control" required
           {...useInput('phone')}
           />
