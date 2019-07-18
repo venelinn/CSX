@@ -73,8 +73,8 @@ module.exports = {
         theme_color: `#2e49ce`,
         description: `Ship for less`,
         display: `minimal-ui`,
-        lang: `en-US`,
-        icon: ``, // This path is relative to the root of the site.
+        lang: `en-US`
+        //icon: ``, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

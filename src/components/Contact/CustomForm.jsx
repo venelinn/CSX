@@ -21,13 +21,33 @@ const CustomForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(values)
+    const formData = new FormData();
+    Object.keys(values).forEach(key => formData.append(key, values[key]));
     //method="post" 
     //action="http://www.pages04.net/csxprod/TruckBusterForm/TruckBuster"
+
+    	// Ajax request
+		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+		xmlhttp.open("POST", "http://www.pages04.net/csxprod/TruckBusterForm/TruckBuster");
+
+		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		
+
+		xmlhttp.onreadystatechange = function() {
+			// if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {				
+			if (xmlhttp.status == 200) {				
+					var obj = JSON.parse(xmlhttp.responseText);
+					console.log('not error: successs', obj);
+			}
+		}
+		xmlhttp.send(formData);
+		//onSubmit={handleSubmit}
   };
 
   return (
     <form
-      onSubmit={handleSubmit}
+			method="post" 
+    	action="http://www.pages04.net/csxprod/TruckBusterForm/TruckBuster"    	
       pageid="23288825"
       siteid="573838"
       parentpageid="23288823"
