@@ -5,37 +5,26 @@ import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import GlobalStyle from '../styles/global';
-import Section from '../components/Section';
 
 import Header from '../components/Header';
 import Contacts from '../components/Contacts';
 
-class IndexPage extends React.Component {
-  render() {
-    const intro = this.props.data.headerData;
-    const contacts = this.props.data.contactsData;
-
-    //sections.modules.forEach( i => console.log(i));
-    return (
-      <Layout>
-        <SEO
-          title={'CSX'}
-          keywords={[
-            `front-end`
-          ]}
-        />
-        <GlobalStyle />
-        <Header data={intro} />
-        <Contacts data={contacts} />
-      </Layout>
-    );
-  }
-}
+const IndexPage = props => {
+  //sections.modules.forEach( i => console.log(i));
+  return (
+    <Layout>
+      <SEO title={'CSX'} keywords={[`front-end`]} />
+      <GlobalStyle />
+      <Header data={props.data.headerData} />
+      <Contacts data={props.data.contactsData} />
+    </Layout>
+  );
+};
 
 export default IndexPage;
 
 IndexPage.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.object
 };
 
 export const query = graphql`

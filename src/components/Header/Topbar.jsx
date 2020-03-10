@@ -1,23 +1,19 @@
 import React from 'react';
-import mainLogo from'../../images/logo.svg';
+import mainLogo from '../../images/logo.svg';
 
-const TopBar = () => {
+const TopBar = props => {
   return (
-    <header className="header">
-      <div className="header__logo">
-        <img src={mainLogo} alt="CSX"/>
+    <header className='header'>
+      <div className='header__logo'>
+        <img src={mainLogo} alt='CSX' />
       </div>
-      <div className="header__cta">
-      <a
-        className='button jsSmoothScroll'
-        href='#contacts'
-        title='Get Quote'
-        >
+      <div className='header__cta'>
+        <a className='button jsSmoothScroll' href='#contacts' title='Get Quote'>
           Get Quote
-      </a>
+        </a>
       </div>
     </header>
-  )
+  );
 };
 
 export default TopBar;

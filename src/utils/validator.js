@@ -6,7 +6,7 @@ import dot from 'dot-object';
  as we don't really need them in the state */
 let formErrors = [];
 
-function handleError (name, isValid) {
+function handleError(name, isValid) {
   if (!isValid) {
     formErrors.push(name);
   } else {
@@ -54,22 +54,24 @@ export function useFormInput({
   }, [handleValidation, name]);
 
   // rewrite self and parent's value
-  const handleChange = useCallback(({ target }) => {
-    const { value, checked, type } = target;
-    const newValue = type === 'checkbox' ? checked : value;
+  const handleChange = useCallback(
+    ({ target }) => {
+      const { value, checked, type } = target;
+      const newValue = type === 'checkbox' ? checked : value;
 
-    // using dot helps us change nested values
-    let data;
-    const isNested = name.includes('.');
-    if (isNested) {
-      dot.override = true;
-      data = dot.str(name, newValue, { ...formData });
-    }
-    else data = { ...formData, [name]: newValue };
+      // using dot helps us change nested values
+      let data;
+      const isNested = name.includes('.');
+      if (isNested) {
+        dot.override = true;
+        data = dot.str(name, newValue, { ...formData });
+      } else data = { ...formData, [name]: newValue };
 
-    setValue(newValue);
-    setFormData(data);
-  }, [setValue, formData, setFormData, name]);
+      setValue(newValue);
+      setFormData(data);
+    },
+    [setValue, formData, setFormData, name]
+  );
 
   const handleFocus = useCallback(() => {
     setIsTouched(true);
@@ -94,7 +96,7 @@ export function useFormInput({
   };
 }
 
-export function useForm (defaultValues, invalidAttr = { error: true }) {
+export function useForm(defaultValues, invalidAttr = { error: true }) {
   const [values, setValues] = useState(defaultValues);
   const [mounted, setMounted] = useState(false);
 
@@ -106,13 +108,14 @@ export function useForm (defaultValues, invalidAttr = { error: true }) {
     };
   }, []);
 
-  const useInput = (name, validation) => useFormInput({
-    name,
-    validation,
-    values,
-    setValues,
-    defaultInvalidAttr: invalidAttr
-  });
+  const useInput = (name, validation) =>
+    useFormInput({
+      name,
+      validation,
+      values,
+      setValues,
+      defaultInvalidAttr: invalidAttr
+    });
 
   return {
     values,

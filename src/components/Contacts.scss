@@ -47,54 +47,68 @@ form {
 
 	max-width: 600px;
 	margin: 0 auto;
-}
-
-
-.input__container {
-	position: relative;
-	@include breakpoint(0 $medium) {
+	pre {
 		grid-column: auto/span 2;
 	}
 }
 
-.input__placeholder {
-	@include font-size(21px);
-	position: absolute;
-	top: 5px;
-	left: 0rem;
-	transition: all .3s ease;
-	z-index: -1;
-	&:after {
-		content: '*'
+
+.input {
+	--form-error-color: #b70000;
+	position: relative;
+	@include breakpoint(0 $medium) {
+		grid-column: auto/span 2;
 	}
-	.active & {
-		top: -15px;
-		@include font-size(13px);
+	&__control {
+		-webkit-appearance: none;
+		background-color: var(--input-bgr, transparent);
+		border-style: solid;
+		border-width: 0 0 1px 0;
+		border-color: var(--input-border, #fff);
+		width: 100%;
+		padding: 5px 5px 5px 0;
+		display: block;
+		outline: none;
+		[data-valid="true"][data-value="true"] > & {
+			--input-bgr: #243FC2;
+			--input-border: transparent;
+		}
+		[data-valid="false"][data-value="true"] > & {
+			color: var(--form-error-color);
+			--input-border: currentColor;
+		}
+	}
+	&__label {
+		@include font-size(21px);
+		position: absolute;
+		top: 5px;
+		left: 0rem;
+		transition: all .3s ease;
+		pointer-events: none;
+		&:after {
+			content: ' *'
+		}
+		.active & {
+			top: -15px;
+			@include font-size(13px);
+		}
+		[data-value="true"] > & {
+			top: -15px;
+			@include font-size(13px);
+		}
+	}
+	&__msg {
+		margin-top: 3px;
+    position: absolute;
+    left: 0;
+    color: var(--form-error-color);
+    @include font-size(13px);
 	}
 }
 
-.input__control:focus + .input__placeholder,
-.input__control:valid + .input__placeholder {
-	top: -15px;
-	@include font-size(13px);
-}
-
-
-
-.input__control {
-	background-color: transparent;
-	border: solid #fff;
-	border-width: 0 0 1px 0;
-	width: 100%;
-	padding: 5px 5px 5px 0;
-	&:valid {
-		background-color: #243FC2;
-		border-color: transparent;
-	}
-}
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
   border: 0;
   -webkit-text-fill-color: #fff;
@@ -105,7 +119,124 @@ input:-internal-autofill-selected {
   background-color: rgba(0,0,0,.1) !important
 }
 
-input[type="submit"],
+// -----------------------------------
+// Checkbox
+// -----------------------------------
+
+.checkbox-wrapper {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+	line-height: 1.5715;
+	list-style: none;
+	display: inline-block;
+	line-height: unset;
+	cursor: pointer;
+}
+
+.checkbox {
+	margin: 0;
+  padding: 0;
+	position: relative;
+	top: -0.09em;
+	display: inline-block;
+	line-height: 1;
+	white-space: nowrap;
+	vertical-align: middle;
+	outline: none;
+	cursor: pointer;
+	+ span {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+	&[data-checked="true"] {
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 1px solid #1890ff;
+			border-radius: 2px;
+			visibility: hidden;
+			animation: checkboxEffect 0.36s ease-in-out;
+			animation-fill-mode: backwards;
+		}
+	}
+	&:hover:after {
+		visibility: visible;
+	}
+	&__control {
+		position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+		opacity: 0;
+		padding: 0;
+	}
+	&__inner {
+		position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    border-collapse: separate;
+		transition: all 0.3s;
+		:hover > & {
+			border-color: #1890ff;
+		}
+		[data-checked="true"] > & {
+			background-color: #1890ff;
+    	border-color: #1890ff;
+		}
+		&:after {
+			content: ' ';
+			position: absolute;
+			top: 50%;
+			left: 22%;
+			display: table;
+			width: 5.71428571px;
+			height: 9.14285714px;
+			border: 2px solid #fff;
+			border-top: 0;
+			border-left: 0;
+			transform: rotate(45deg) scale(0) translate(-50%, -50%);
+			opacity: 0;
+			transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
+			[data-checked="true"] > & {
+				transform: rotate(45deg) scale(1) translate(-50%, -50%);
+				opacity: 1;
+				transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+			}
+		}
+	}
+
+}
+
+
+@keyframes checkboxEffect {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+		opacity: 0;
+  }
+}
+
+[type="submit"],
 .button--submit {
 	background-color: var(--color-dark);
 	border: 0;

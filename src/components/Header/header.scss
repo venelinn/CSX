@@ -4,6 +4,10 @@
 	flex-direction: column;
 	position: relative;
 	background-color: var(--color-dark);
+	transition: background .8s ease;
+	&--blank {
+		background-color: var(--bgr-color);
+	}
 }
 
 .header {
@@ -26,7 +30,7 @@
 .intro {
 	flex: 1;
 	text-align: center;
-	padding-top: 17vh;
+	padding-top: 19vh;
 	color: var(--base-color);
 	@include breakpoint(0 $medium) {
 		padding-left: 2rem;
