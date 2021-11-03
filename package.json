@@ -47,7 +47,7 @@
     "smooth-scroll": "^16.0.3",
     "styled-components": "^4.2.0",
     "swiper": "^4.5.0",
-    "validator": "^10.11.0",
+    "validator": "^13.7.0",
     "yup": "^0.28.3"
   },
   "keywords": [
